@@ -17,8 +17,8 @@ export class CouponService {
   retrieveallcoupons() {
     return this.http.get<{data: any }>(`${this.url}`)
     .subscribe(res => {
-      console.log(res.data);
-      this.couponlist = res.data;
+      console.log(res.data.data);
+      this.couponlist = res.data.data;
       this.couponsubject.next([...this.couponlist]);
     }, err => {
       console.log(err.message);
