@@ -9,6 +9,7 @@ import { AngularmaterialModule } from './angularmaterial/angularmaterial/angular
 import { CreatecouponComponent } from './coupons/createcoupon/createcoupon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.co
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularmaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
