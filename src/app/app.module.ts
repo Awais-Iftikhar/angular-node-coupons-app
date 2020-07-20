@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularmaterialModule } from './angularmaterial/angularmaterial/angularmaterial.module';
 import { CreatecouponComponent } from './coupons/createcoupon/createcoupon.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreatecouponComponent } from './coupons/createcoupon/createcoupon.compo
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularmaterialModule
+    AngularmaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
