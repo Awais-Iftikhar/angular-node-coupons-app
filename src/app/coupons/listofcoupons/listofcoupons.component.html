@@ -1,3 +1,11 @@
+<div class="card" class="mat-elevation-z8">
+  <div class="card-header d-flex justify-content-end" >
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>Create Coupon
+    </button>
+  </div>
+</div>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
   <ng-container matColumnDef="name">
@@ -17,10 +25,10 @@
   <ng-container matColumnDef="Actions" >
     <th mat-header-cell *matHeaderCellDef > </th>
     <td mat-cell *matCellDef="let element" >
-      <button mat-fab  class="actionbtn">
+      <button mat-icon-button  class="actionbtn">
         <mat-icon>launch</mat-icon>
       </button>
-      <button mat-fab class="actionbtn ml-2">
+      <button mat-icon-button  class="actionbtn ml-2">
         <mat-icon>delete</mat-icon>
       </button>
     </td>
