@@ -10,7 +10,7 @@ import { AngularmaterialModule } from './angularmaterial/angularmaterial/angular
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
