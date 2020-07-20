@@ -31,10 +31,9 @@
       <div class="form-row" *ngIf="value == 'val2'">
         <div class="col-auto my-1">
           <label class="mr-sm-2" for="">Currency</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName = 'currency' >
-              <option>PKR</option>
-              <option>USD</option>
-          </select>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName = 'currency'  (change)="oncountrychange($event)" >
+              <option *ngFor="let item of countries" [value] = "item.code">{{item.name}}-{{item.code}}</option>
+            </select>
         </div>
 
         <div class="col-auto my-1">
@@ -43,7 +42,7 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" >curr</span>
+              <span class="input-group-text" *ngIf="countrycode != ''">{{countrycode}}</span>
             </div>
             <input type="number" class="form-control" formControlName="discountamount">
           </div>
