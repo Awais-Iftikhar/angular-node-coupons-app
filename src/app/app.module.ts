@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularmaterialModule } from './angularmaterial/angularmaterial/angularmaterial.module';
 import { CreatecouponComponent } from './coupons/createcoupon/createcoupon.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CreatecouponComponent,
+    ListofcouponsComponent,
   ],
   imports: [
     BrowserModule,
