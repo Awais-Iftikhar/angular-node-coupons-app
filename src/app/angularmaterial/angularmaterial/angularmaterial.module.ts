@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import {MatToolbarModule,
         MatButtonModule,
         MatIconModule,
-        MatTableModule
+        MatTableModule,
+        MatPaginatorModule,
+        MatSortModule,
   } from '@angular/material';
 
 
@@ -12,7 +14,9 @@ import {MatToolbarModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class AngularmaterialModule { }
