@@ -11,14 +11,13 @@ import { Coupons } from '../coupons';
 export class CoupondetailComponent implements OnInit {
 
   couponid;
-  coupondata: Coupons;
+  coupondata;
   constructor(private couponservice: CouponService , private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((res) => {
       this.couponid = res.get('couponid');
       this.coupondata = this.couponservice.getsinglecoupon(this.couponid);
-      console.log(this.coupondata);
     });
   }
 
