@@ -8,7 +8,12 @@
     <mat-divider></mat-divider>
     <mat-card-content class="card-bd">
         <p>terms</p>
-        <p>{{ coupondata.percent_off+ ' % off ' + coupondata.duration }}</p>
+        <div *ngIf="currency === ' %'">
+        <p>{{ discountvalue + currency  + ' off ' + coupondata.duration }}</p>
+         </div>
+         <div *ngIf="currency !== ' %'">
+          <p>{{ currency+ ' ' + discountvalue+ ' off ' + coupondata.duration }}</p>
+        </div>
     </mat-card-content>
   </mat-card>
 
@@ -44,7 +49,7 @@
             <div class="details">
               <div class="inner-detail">
                 <p>Discount</p>
-                <p>{{coupondata.percent_off}}</p>
+                <p>{{discountvalue}}</p>
               </div>
             </div>
             <div class="details">
