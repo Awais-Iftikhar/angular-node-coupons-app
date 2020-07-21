@@ -29,4 +29,13 @@ export class CouponService {
   updateui() {
     return this.couponsubject.asObservable();
   }
+
+  createcoupon(data) {
+    console.log(data);
+    this.http.post<{message: string}>(`${this.url}`, data).subscribe(res => {
+      console.log(res.message);
+    }, err => {
+      console.log(err);
+    });
+  }
 }

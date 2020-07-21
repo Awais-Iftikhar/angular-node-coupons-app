@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import list from 'src/assets/countries.json';
+import { MatDialogRef } from '@angular/material';
+import { CouponService } from 'src/app/coupon.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class CreatecouponComponent implements OnInit {
   value = 'val1';
   countries: [] = list;
   countrycode = '';
-  constructor() { }
+  constructor(private couponservice: CouponService, private matref: MatDialogRef<CreatecouponComponent>) { }
 
   ngOnInit() {
 
@@ -40,6 +42,15 @@ export class CreatecouponComponent implements OnInit {
   }
   add(form) {
     console.log(form.value);
+    const data = {
+      name: form.value.name,
+      percentoff: form.value.percentoff,
+      duration: form.value.duration,
+      currency: form.value.currency,
+      discountamount: form.value.discountamount,
+    };
+    this.couponservice.createcoupon(data);
+    this.matref.close();
   }
 
 }

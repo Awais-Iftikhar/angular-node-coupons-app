@@ -5,6 +5,7 @@ import {MatToolbarModule,
         MatTableModule,
         MatPaginatorModule,
         MatSortModule,
+        MatDialogModule
   } from '@angular/material';
 
 
@@ -16,7 +17,8 @@ import {MatToolbarModule,
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
   ]
 })
 export class AngularmaterialModule { }

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CouponService } from 'src/app/coupon.service';
 import { Coupons } from '../coupons';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
+import { CreatecouponComponent } from '../createcoupon/createcoupon.component';
 
 @Component({
   selector: 'app-listofcoupons',
@@ -11,7 +12,7 @@ import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 export class ListofcouponsComponent implements OnInit {
   data: Coupons[];
 
-  constructor(private couponservice: CouponService) { }
+  constructor(private couponservice: CouponService , private dialog: MatDialog) { }
   @ViewChild(MatSort , {static: false}) sort: MatSort;
   @ViewChild(MatPaginator , {static: false}) paginator: MatPaginator;
 
@@ -28,6 +29,13 @@ export class ListofcouponsComponent implements OnInit {
       console.log(this.dataSource);
     });
 
+  }
+  addcoupon() {
+    this.dialog.open(CreatecouponComponent,
+      {
+        height: '520px',
+        width: '600px',
+      });
   }
 
 }
