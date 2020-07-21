@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeletedialogueComponent } from './coupons/deletedialogue/deletedialogue.component';
 import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.component';
 import { SignupComponent } from './auth/signup/signup/signup.component';
+import { LoginComponent } from './auth/login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SignupComponent } from './auth/signup/signup/signup.component';
     DeletedialogueComponent,
     CoupondetailComponent,
     SignupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
