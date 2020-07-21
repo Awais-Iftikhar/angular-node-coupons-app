@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeletedialogueComponent } from './coupons/deletedialogue/deletedialogue.component';
+import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DeletedialogueComponent } from './coupons/deletedialogue/deletedialogue
     CreatecouponComponent,
     ListofcouponsComponent,
     DeletedialogueComponent,
+    CoupondetailComponent,
   ],
   imports: [
     BrowserModule,

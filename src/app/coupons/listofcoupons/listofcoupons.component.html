@@ -25,7 +25,7 @@
   <ng-container matColumnDef="Actions" >
     <th mat-header-cell *matHeaderCellDef > </th>
     <td mat-cell *matCellDef="let element" >
-      <button mat-icon-button  class="actionbtn">
+      <button mat-icon-button  class="actionbtn"  [routerLink]="['/coupon', element.id]">
         <mat-icon>launch</mat-icon>
       </button>
       <button mat-icon-button  class="actionbtn ml-2" (click)="deletecoupon(element)">

@@ -39,6 +39,10 @@ export class CouponService {
     });
   }
 
+  getsinglecoupon(id: string) {
+    return {...this.couponlist.find((coupon => coupon.id === id))};
+  }
+
   deletecoupon(id: string) {
     this.http.delete<{message: string}>(`${this.url}/${id}`).subscribe(res => {
       console.log(res.message);
