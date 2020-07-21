@@ -1,44 +1,47 @@
-<div class="card" class="mat-elevation-z8">
-  <div class="card-header d-flex justify-content-end" >
-    <button mat-raised-button color="primary" (click)="addcoupon()">
-      <mat-icon>add</mat-icon>Create Coupon
-    </button>
+<div class="container mt-5">
+  <div class="card" class="mat-elevation-z8">
+    <div class="card-header d-flex justify-content-end" >
+      <button mat-raised-button color="primary" (click)="addcoupon()">
+        <mat-icon>add</mat-icon>Create Coupon
+      </button>
+    </div>
   </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
+      <td mat-cell *matCellDef="let data"> {{data.duration}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef > Created_at </th>
+      <td mat-cell *matCellDef="let element"> {{element.created | date : 'd MMMM' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="Actions" >
+      <th mat-header-cell *matHeaderCellDef > </th>
+      <td mat-cell *matCellDef="let element" >
+        <button mat-icon-button  class="actionbtn"  [routerLink]="['/coupon', element.id]">
+          <mat-icon>launch</mat-icon>
+        </button>
+        <button mat-icon-button  class="actionbtn ml-2" (click)="deletecoupon(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;" ></tr>
+
+  </table>
+  <mat-paginator class="mat-elevation-z8"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons >
+  </mat-paginator>
+
 </div>
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="duration">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration </th>
-    <td mat-cell *matCellDef="let data"> {{data.duration}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef > Created_at </th>
-    <td mat-cell *matCellDef="let element"> {{element.created | date : 'd MMMM' }} </td>
-  </ng-container>
-  <ng-container matColumnDef="Actions" >
-    <th mat-header-cell *matHeaderCellDef > </th>
-    <td mat-cell *matCellDef="let element" >
-      <button mat-icon-button  class="actionbtn"  [routerLink]="['/coupon', element.id]">
-        <mat-icon>launch</mat-icon>
-      </button>
-      <button mat-icon-button  class="actionbtn ml-2" (click)="deletecoupon(element)">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
-  <tr mat-row  *matRowDef="let row; columns: displayedColumns;" ></tr>
-
-</table>
-<mat-paginator class="mat-elevation-z8"
-[pageSize]="10"
-[pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons >
-</mat-paginator>
