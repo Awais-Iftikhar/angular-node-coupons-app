@@ -41,7 +41,7 @@
             <div class="details">
               <div class="inner-detail">
                 <p>Created</p>
-                <p> {{coupondata.created}} </p>
+                <p> {{coupondata.created | date : 'd MMMM'}} </p>
               </div>
             </div>
           </div>
@@ -75,7 +75,8 @@
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="card-bd">
-        <p>Coupon created</p>
+        <p>{{'New Coupon with the ID ' + coupondata.id + ' was created'}}</p>
+        <p>{{coupondata.created | date: 'short'}}</p>
     </mat-card-content>
   </mat-card>
 </div>

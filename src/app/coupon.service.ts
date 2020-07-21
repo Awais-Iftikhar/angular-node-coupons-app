@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Coupons } from './coupons/coupons';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +19,24 @@ export class CouponService {
 
   retrieveallcoupons() {
     return this.http.get<{data: any }>(`${this.url}`)
+    .pipe(map((res) => {
+      return res.data.data.map((d) => {
+        const time = d.created * 1000;
+        const date = new Date(time);
+        return {
+          id: d.id,
+          name: d.name,
+          duration: d.duration,
+          amount_off: d.amount_off,
+          percent_off: d.percent_off,
+          created: date,
+          valid: d.valid
+        };
+      });
+    }))
     .subscribe(res => {
-      console.log(res.data.data);
-      this.couponlist = res.data.data;
+      console.log(res);
+      this.couponlist = res;
       this.couponsubject.next([...this.couponlist]);
     }, err => {
       console.log(err.message);
