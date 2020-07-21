@@ -1,0 +1,21 @@
+<div class="main">
+  <mat-card>
+    <form  (ngSubmit)="signup(signupform)" [formGroup] = "signupform">
+      <mat-form-field>
+
+        <input matInput type="text" formControlName = 'email' placeholder="Email" >
+        <mat-icon color="primary" matSuffix>email</mat-icon>
+
+      </mat-form-field>
+      <mat-form-field  >
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName = 'password'  >
+        <mat-icon color="primary" matSuffix>lock</mat-icon>
+
+
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" >submit</button>
+    </form>
+  </mat-card>
+</div>
+

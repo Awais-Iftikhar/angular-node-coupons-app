@@ -12,6 +12,7 @@ import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.co
 import { HttpClientModule } from '@angular/common/http';
 import { DeletedialogueComponent } from './coupons/deletedialogue/deletedialogue.component';
 import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.component';
+import { SignupComponent } from './auth/signup/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.compo
     ListofcouponsComponent,
     DeletedialogueComponent,
     CoupondetailComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.compo
     BrowserAnimationsModule,
     AngularmaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
