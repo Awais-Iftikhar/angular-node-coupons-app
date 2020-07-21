@@ -1,14 +1,14 @@
 <div class="container">
-  <mat-card>
+  <mat-card >
     <mat-card-header class="header-card">
       <mat-card-subtitle>Coupon</mat-card-subtitle>
 
-      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-title>{{coupondata.name}}</mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="card-bd">
         <p>terms</p>
-        <p>12 % off</p>
+        <p>{{ coupondata.percent_off+ ' % off ' + coupondata.duration }}</p>
     </mat-card-content>
   </mat-card>
 
@@ -24,39 +24,39 @@
             <div class="details">
               <div class="inner-detail">
                 <p>ID</p>
-                <p>Lrnfjj</p>
+                <p>{{ coupondata.id }}</p>
               </div>
             </div>
             <div class="details">
               <div class="inner-detail">
                 <p>Name</p>
-              <p>Lrnfjj</p>
+              <p>{{coupondata.name}}</p>
               </div>
             </div>
             <div class="details">
               <div class="inner-detail">
                 <p>Created</p>
-                <p>Lrnfjj</p>
+                <p> {{coupondata.created}} </p>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="details">
               <div class="inner-detail">
-                <p>ID</p>
-                <p>Lrnfjj</p>
+                <p>Discount</p>
+                <p>{{coupondata.percent_off}}</p>
               </div>
             </div>
             <div class="details">
               <div class="inner-detail">
-                <p>Name</p>
-              <p>Lrnfjj</p>
+                <p>Valid</p>
+              <p>{{coupondata.valid}}</p>
               </div>
             </div>
             <div class="details">
               <div class="inner-detail">
-                <p>Created</p>
-                <p>Lrnfjj</p>
+                <p>Duration</p>
+                <p>{{coupondata.duration}}</p>
               </div>
             </div>
           </div>
