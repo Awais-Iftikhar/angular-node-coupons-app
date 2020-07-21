@@ -12,6 +12,7 @@ import { DeletedialogueComponent } from '../deletedialogue/deletedialogue.compon
 })
 export class ListofcouponsComponent implements OnInit {
   data: Coupons[];
+  isloading = false;
 
   constructor(private couponservice: CouponService , private dialog: MatDialog) { }
   @ViewChild(MatSort , {static: false}) sort: MatSort;
@@ -20,8 +21,10 @@ export class ListofcouponsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'duration', 'date', 'Actions'];
   dataSource = new MatTableDataSource<Coupons>(this.data);
   ngOnInit() {
+    this.isloading = true;
     this.couponservice.retrieveallcoupons();
     this.couponservice.updateui().subscribe(res => {
+      this.isloading = false;
       console.log(res);
       this.dataSource.data = res;
       console.log(this.dataSource);

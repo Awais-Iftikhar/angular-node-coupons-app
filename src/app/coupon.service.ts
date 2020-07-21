@@ -3,8 +3,6 @@ import { Coupons } from './coupons/coupons';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
-
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +12,7 @@ export class CouponService {
   url = 'http://localhost:8081/api/coupons';
   couponlist: Coupons[] = [];
   private couponsubject = new Subject<Coupons[]>();
+  loaddata = new Subject<Coupons>();
 
   constructor(private http: HttpClient) { }
 
@@ -51,6 +50,7 @@ export class CouponService {
   createcoupon(data) {
     console.log(data);
     this.http.post<{message: string}>(`${this.url}`, data).subscribe(res => {
+      this.retrieveallcoupons();
       console.log(res.message);
     }, err => {
       console.log(err);
@@ -63,6 +63,7 @@ export class CouponService {
 
   deletecoupon(id: string) {
     this.http.delete<{message: string}>(`${this.url}/${id}`).subscribe(res => {
+      this.retrieveallcoupons();
       console.log(res.message);
     }, err => {
       console.log(err);

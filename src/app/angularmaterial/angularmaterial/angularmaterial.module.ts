@@ -7,7 +7,8 @@ import {MatToolbarModule,
         MatSortModule,
         MatDialogModule,
         MatCardModule,
-        MatDividerModule
+        MatDividerModule,
+        MatProgressSpinnerModule
   } from '@angular/material';
 
 
@@ -22,7 +23,8 @@ import {MatToolbarModule,
     MatSortModule,
     MatDialogModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ]
 })
 export class AngularmaterialModule { }
