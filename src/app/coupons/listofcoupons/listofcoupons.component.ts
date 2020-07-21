@@ -3,6 +3,7 @@ import { CouponService } from 'src/app/coupon.service';
 import { Coupons } from '../coupons';
 import { MatTableDataSource, MatSort, MatPaginator, MatDialog } from '@angular/material';
 import { CreatecouponComponent } from '../createcoupon/createcoupon.component';
+import { DeletedialogueComponent } from '../deletedialogue/deletedialogue.component';
 
 @Component({
   selector: 'app-listofcoupons',
@@ -36,6 +37,20 @@ export class ListofcouponsComponent implements OnInit {
         height: '520px',
         width: '600px',
       });
+  }
+
+  deletecoupon(row) {
+    const ref = this.dialog.open(DeletedialogueComponent, {
+      width: '300px',
+      data: row.id
+      },
+    );
+    ref.afterClosed().subscribe((res) => {
+      if (res === true) {
+        const id = row.id;
+        this.couponservice.deletecoupon(id);
+      }
+    });
   }
 
 }

@@ -10,6 +10,7 @@ import { CreatecouponComponent } from './coupons/createcoupon/createcoupon.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DeletedialogueComponent } from './coupons/deletedialogue/deletedialogue.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     CreatecouponComponent,
     ListofcouponsComponent,
+    DeletedialogueComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [CreatecouponComponent]
+  entryComponents: [CreatecouponComponent, DeletedialogueComponent]
 })
 export class AppModule { }

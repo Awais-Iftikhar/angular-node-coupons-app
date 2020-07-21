@@ -38,4 +38,12 @@ export class CouponService {
       console.log(err);
     });
   }
+
+  deletecoupon(id: string) {
+    this.http.delete<{message: string}>(`${this.url}/${id}`).subscribe(res => {
+      console.log(res.message);
+    }, err => {
+      console.log(err);
+    });
+  }
 }
