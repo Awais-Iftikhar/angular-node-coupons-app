@@ -9,11 +9,12 @@ import { AngularmaterialModule } from './angularmaterial/angularmaterial/angular
 import { CreatecouponComponent } from './coupons/createcoupon/createcoupon.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListofcouponsComponent } from './coupons/listofcoupons/listofcoupons.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, ɵHttpInterceptingHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DeletedialogueComponent } from './coupons/deletedialogue/deletedialogue.component';
 import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.component';
 import { SignupComponent } from './auth/signup/signup/signup.component';
 import { LoginComponent } from './auth/login/login/login.component';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { LoginComponent } from './auth/login/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
   entryComponents: [CreatecouponComponent, DeletedialogueComponent]
 })
