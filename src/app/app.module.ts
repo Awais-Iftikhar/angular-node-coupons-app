@@ -15,6 +15,8 @@ import { CoupondetailComponent } from './coupons/coupondetail/coupondetail.compo
 import { SignupComponent } from './auth/signup/signup/signup.component';
 import { LoginComponent } from './auth/login/login/login.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { ErrorInterceptor } from './error-interceptor';
+import { ErrordialogueComponent } from './coupons/errordialogue/errordialogue.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     CoupondetailComponent,
     SignupComponent,
     LoginComponent,
+    ErrordialogueComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,8 +38,11 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [CreatecouponComponent, DeletedialogueComponent]
+  entryComponents: [CreatecouponComponent, DeletedialogueComponent, ErrordialogueComponent]
 })
 export class AppModule { }
