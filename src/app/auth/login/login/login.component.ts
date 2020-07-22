@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,6 @@ export class LoginComponent implements OnInit {
   getpassword() {
     return this.form.get('password');
   }
-
 
   login(form) {
     if (form.invalid) {

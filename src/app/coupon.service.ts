@@ -17,7 +17,7 @@ export class CouponService {
   constructor(private http: HttpClient) { }
 
   retrieveallcoupons() {
-    return this.http.get<{data: any }>(`${this.url}`)
+    return this.http.get<{data: any}>(`${this.url}`)
     .pipe(map((res) => {
       return res.data.data.map((d) => {
         const time = d.created * 1000;
