@@ -1,0 +1,8 @@
+mat-dialog-actions{
+  width: 100%;
+  display: flex;
+}
+mat-dialog-actions mat-button{
+  flex-grow: 1;
+}
+

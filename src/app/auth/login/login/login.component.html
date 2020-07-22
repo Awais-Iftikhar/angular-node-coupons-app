@@ -1,20 +1,38 @@
-<div class="main">
+<div class="main  mt-5">
+  <div class="card-header">
+    <h1>Login to continue</h1>
+  </div>
   <mat-card>
     <form  (ngSubmit)="login(form)" [formGroup] = "form">
       <mat-form-field>
 
         <input matInput type="text" formControlName = 'email' placeholder="Email" >
         <mat-icon color="primary" matSuffix>email</mat-icon>
+        <mat-error *ngIf="getemail().invalid" >
+          <span *ngIf="getemail().errors.required">email is required </span>
+          <span *ngIf="this.getemail().errors.pattern">invalid email</span>
+
+        </mat-error>
 
       </mat-form-field>
       <mat-form-field  >
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName = 'password'  >
         <mat-icon color="primary" matSuffix>lock</mat-icon>
+        <mat-error *ngIf="getpassword().invalid" >
+          <span *ngIf="getpassword().errors.required">password is required </span>
+          <span *ngIf="getpassword().errors.minlength">password must be atleast 5 characters</span>
+
+        </mat-error>
 
 
       </mat-form-field>
       <button mat-raised-button color="primary" type="submit" >submit</button>
     </form>
+    <mat-card-content class="text-center mt-3">Dont have an account?
+      <a routerLink="/signup" color="primary"> SIgnup</a>
+    </mat-card-content>
   </mat-card>
+
+
 </div>

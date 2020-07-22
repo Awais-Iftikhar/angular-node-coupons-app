@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -14,10 +14,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      email : new FormControl(null),
-      password : new FormControl(null),
+      email : new FormControl(null, {validators: [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]}),
+      password : new FormControl(null, {validators: [Validators.required , Validators.minLength(5)]}),
     });
   }
+  getemail() {
+    return this.form.get('email');
+  }
+
+  getpassword() {
+    return this.form.get('password');
+  }
+
 
   login(form) {
     if (form.invalid) {

@@ -1,15 +1,15 @@
-
-  <mat-spinner style="margin: 0 auto" *ngIf="isloading"></mat-spinner>
-<div class="container mt-5" *ngIf="!isloading">
+  <!-- <mat-spinner style="margin: 0 auto" *ngIf="isloading"></mat-spinner> -->
+<div class="container mt-5" >
   <div class="card" class="mat-elevation-z8">
-    <div class="card-header d-flex justify-content-end" >
+    <div class="card-header d-flex justify-content-between" >
+      <h2  style="color: #697386;">Dashboard</h2>
       <button mat-raised-button color="primary" (click)="addcoupon()">
         <mat-icon>add</mat-icon>Create Coupon
       </button>
     </div>
   </div>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> name </th>
@@ -41,9 +41,10 @@
     <tr mat-row  *matRowDef="let row; columns: displayedColumns;" ></tr>
 
   </table>
+</div>
+<div class="container">
   <mat-paginator class="mat-elevation-z8"
   [pageSize]="10"
   [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons >
   </mat-paginator>
-
 </div>

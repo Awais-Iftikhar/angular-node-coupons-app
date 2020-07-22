@@ -16,7 +16,7 @@ export class ListofcouponsComponent implements OnInit {
 
   constructor(private couponservice: CouponService , private dialog: MatDialog) { }
   @ViewChild(MatSort , {static: false}) sort: MatSort;
-  @ViewChild(MatPaginator , {static: false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator , {static: true}) paginator: MatPaginator;
 
   displayedColumns: string[] = ['name', 'duration', 'date', 'Actions'];
   dataSource = new MatTableDataSource<Coupons>(this.data);

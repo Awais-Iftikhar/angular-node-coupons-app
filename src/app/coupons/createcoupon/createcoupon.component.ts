@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import list from 'src/assets/countries.json';
 import { MatDialogRef } from '@angular/material';
 import { CouponService } from 'src/app/coupon.service';
@@ -20,9 +20,9 @@ export class CreatecouponComponent implements OnInit {
   ngOnInit() {
 
     this.couponform = new FormGroup({
-      name : new FormControl(null),
-      percentoff : new FormControl(null),
-      duration: new FormControl(null),
+      name : new FormControl(null, Validators.required),
+      percentoff : new FormControl(null, Validators.pattern('^[1-9]$|^[1-9][0-9]$|^(100)$')),
+      duration: new FormControl(null, Validators.required),
       currency: new FormControl(null),
       discountamount: new FormControl(null),
     });
@@ -39,7 +39,19 @@ export class CreatecouponComponent implements OnInit {
     const code = e.target.value;
     this.countrycode = code;
   }
+  getname() {
+    return this.couponform.get('name');
+  }
+  getduration() {
+    return this.couponform.get('duration');
+  }
+  getpercent() {
+    return this.couponform.get('percentoff');
+  }
   add(form) {
+    if (form.invalid) {
+      return;
+    }
     console.log(form.value);
     const data = {
       name: form.value.name,
@@ -49,6 +61,7 @@ export class CreatecouponComponent implements OnInit {
       discountamount: form.value.discountamount,
     };
     this.couponservice.createcoupon(data);
+    this.couponform.reset();
     this.matref.close();
   }
 

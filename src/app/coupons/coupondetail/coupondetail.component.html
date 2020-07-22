@@ -1,7 +1,8 @@
-<div class="container">
-  <mat-card >
+<div class="container mt-3">
+  <mat-card>
     <mat-card-header class="header-card">
-      <mat-card-subtitle>Coupon</mat-card-subtitle>
+
+      <mat-card-subtitle > <mat-icon style="font-size: 20px;">local_offer</mat-icon> <span style="color: #697386; font-size: 20px;">Coupon</span></mat-card-subtitle>
 
       <mat-card-title>{{coupondata.name}}</mat-card-title>
     </mat-card-header>
@@ -75,8 +76,10 @@
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="card-bd">
-        <p>{{'New Coupon with the ID ' + coupondata.id + ' was created'}}</p>
-        <p>{{coupondata.created | date: 'short'}}</p>
+        <div class="innercontent">
+          <p>{{'New Coupon with the ID ' + coupondata.id + ' was created'}}</p>
+          <p>{{coupondata.created | date: 'short'}}</p>
+        </div>
     </mat-card-content>
   </mat-card>
 </div>
