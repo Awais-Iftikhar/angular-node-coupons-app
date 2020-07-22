@@ -5,4 +5,24 @@ mat-dialog-actions{
 mat-dialog-actions mat-button{
   flex-grow: 1;
 }
+.btn-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+#cancel-btn{
+  background-color: red;
+  color: white;
+
+}
+#ok-btn{
+  background-color: purple;
+  color: white;
+
+}
+
+.dialog-cont {
+  padding: 0 24px 10px 24px !important;
+}
 

@@ -12,7 +12,7 @@ export class CouponService {
   url = 'http://localhost:8081/api/coupons';
   couponlist: Coupons[] = [];
   private couponsubject = new Subject<Coupons[]>();
-  loaddata = new Subject<Coupons>();
+  loaddata = new Subject<boolean>();
 
   constructor(private http: HttpClient) { }
 
@@ -43,6 +43,10 @@ export class CouponService {
 
   }
 
+  loadingstatus() {
+    return this.loaddata.asObservable();
+  }
+
   updateui() {
     return this.couponsubject.asObservable();
   }
@@ -50,6 +54,7 @@ export class CouponService {
   createcoupon(data) {
     console.log(data);
     this.http.post<{message: string}>(`${this.url}`, data).subscribe(res => {
+      this.loaddata.next(true);
       this.retrieveallcoupons();
       console.log(res.message);
     }, err => {
@@ -58,11 +63,13 @@ export class CouponService {
   }
 
   getsinglecoupon(id: string) {
-    return {...this.couponlist.find((coupon => coupon.id === id))};
+    // return {...this.couponlist.find((coupon => coupon.id === id))};
+    return this.http.get<{data: any}>(`${this.url}/${id}`);
   }
 
   deletecoupon(id: string) {
     this.http.delete<{message: string}>(`${this.url}/${id}`).subscribe(res => {
+      this.loaddata.next(true);
       this.retrieveallcoupons();
       console.log(res.message);
     }, err => {

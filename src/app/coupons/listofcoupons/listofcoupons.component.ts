@@ -21,6 +21,9 @@ export class ListofcouponsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'duration', 'date', 'Actions'];
   dataSource = new MatTableDataSource<Coupons>(this.data);
   ngOnInit() {
+    this.couponservice.loadingstatus().subscribe(res => {
+      this.isloading = res;
+    });
     this.isloading = true;
     this.couponservice.retrieveallcoupons();
     this.couponservice.updateui().subscribe(res => {
@@ -45,7 +48,7 @@ export class ListofcouponsComponent implements OnInit {
   deletecoupon(row) {
     const ref = this.dialog.open(DeletedialogueComponent, {
       width: '300px',
-      data: row.id
+      data: row.id,
       },
     );
     ref.afterClosed().subscribe((res) => {

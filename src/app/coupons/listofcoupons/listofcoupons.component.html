@@ -1,4 +1,3 @@
-  <!-- <mat-spinner style="margin: 0 auto" *ngIf="isloading"></mat-spinner> -->
 <div class="container mt-5" >
   <div class="card" class="mat-elevation-z8">
     <div class="card-header d-flex justify-content-between" >
@@ -8,8 +7,11 @@
       </button>
     </div>
   </div>
+  <mat-card class="text-center" *ngIf="isloading">
+      <mat-spinner style="margin: 0 auto" *ngIf="isloading"></mat-spinner>
+  </mat-card>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort *ngIf="!isloading">
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> name </th>

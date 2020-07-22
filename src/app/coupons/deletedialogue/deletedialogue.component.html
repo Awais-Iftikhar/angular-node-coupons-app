@@ -1,14 +1,14 @@
 
-<div mat-dialog-title class="d-flex flex-row justify-content-between">
-  <h2>Warning</h2>
-  <button mat-icon-button [mat-dialog-close] = "false"><mat-icon>cancel</mat-icon></button>
+<div mat-dialog-title class="d-flex flex-row justify-content-between mb-0">
+  <p>Warning</p>
+  <button mat-icon-button [mat-dialog-close] = "false"><mat-icon color="primary">cancel</mat-icon></button>
 
 </div>
 
-<div mat-dialog-content>
-  <p>Are you sure?</p>
+<div mat-dialog-content class="dialog-cont">
+  <h4>Are you sure?</h4>
 </div>
-<div mat-dialog-actions>
-  <button mat-button [mat-dialog-close] = "false">Cancel</button>
-  <button mat-button [mat-dialog-close]="true">Ok</button>
+<div mat-dialog-actions class="btn-wrapper">
+  <button mat-button [mat-dialog-close] = "false" id="cancel-btn">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" id="ok-btn">Ok</button>
 </div>
