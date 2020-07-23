@@ -8,10 +8,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .main{
-  width : 50%;
+  width : 30%;
   margin: auto;
 }
 
 .mat-form-field{
   width: 100%;
+}
+
+@media  only screen and (max-width: 1100px){
+  .main{
+      width: 50%;
+  }
+
+}
+
+@media  only screen and (max-width: 900px){
+  .main{
+      width: 80%;
+  }
+
+}
+
+@media  only screen and (max-width: 500px){
+  .main{
+      width: 90%;
+  }
+
 }
