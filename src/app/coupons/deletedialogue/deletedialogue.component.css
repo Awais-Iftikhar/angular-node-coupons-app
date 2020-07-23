@@ -11,7 +11,7 @@ mat-dialog-actions mat-button{
   justify-content: center;
   padding-bottom: 20px;
 }
-#cancel-btn{
+/* #cancel-btn{
   background-color: red;
   color: white;
 
@@ -20,9 +20,15 @@ mat-dialog-actions mat-button{
   background-color: purple;
   color: white;
 
+} */
+.dialog-head-cont{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0px;
 }
 
 .dialog-cont {
   padding: 0 24px 10px 24px !important;
+  margin-bottom: 30px;
 }
 
