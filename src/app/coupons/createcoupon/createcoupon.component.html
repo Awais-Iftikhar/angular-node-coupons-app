@@ -28,47 +28,49 @@
 
     <div class="form-group" *ngIf="value == 'val1'">
       <label for="">Percent Off</label>
-        <input type="number"  class="form-control" placeholder="" formControlName = 'percentoff'>
+        <div class="input-group">
+            <input type="number"  class="form-control" placeholder="" formControlName = 'percentoff'>
+          <div class="input-group-append">
+            <span class="input-group-text">%</span>
+          </div>
+        </div>
         <div *ngIf="getpercent().invalid && getpercent().touched">
           <small *ngIf="getpercent().errors.pattern" class="text-danger">select value between 1 to 100</small>
         </div>
     </div>
 
-      <div class="form-row" *ngIf="value == 'val2'">
-        <div class="col-auto my-1">
-          <label class="mr-sm-2" for="">Currency</label>
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" formControlName = 'currency'  (change)="oncountrychange($event)" >
-              <option *ngFor="let item of countries" [value] = "item.code">{{item.name}}-{{item.code}}</option>
-            </select>
-        </div>
-
-        <div class="col-auto my-1">
-
-          <label class="mr-sm-2" for="inlineFormCustomSelect">Discount Amount</label>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" *ngIf="countrycode != ''">{{countrycode}}</span>
-            </div>
-            <input type="number" class="form-control" formControlName="discountamount">
-          </div>
-
-        </div>
+    <div *ngIf="value == 'val2'">
+      <div class="form-group">
+        <label>Currency</label>
+          <select class="custom-select form-control" formControlName = 'currency'  (change)="oncountrychange($event)" >
+            <option *ngFor="let item of countries" [value] = "item.code">{{item.name}}-{{item.code}}</option>
+          </select>
       </div>
 
       <div class="form-group">
-        <label>Duration</label>
-        <select class="form-control custom-select" id="" formControlName = 'duration'>
-          <option>Once</option>
-          <option>Forever</option>
-        </select>
-        <div *ngIf="getduration().invalid && getduration().touched">
-          <small *ngIf="getduration().errors.required" class="text-danger">please select the duration</small>
+        <label>Discount Amount</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" *ngIf="countrycode != ''">{{countrycode}}</span>
+          </div>
+          <input type="number" class="form-control" formControlName="discountamount">
         </div>
       </div>
+    </div>
 
+    <div class="form-group">
+      <label>Duration</label>
+      <select class="form-control custom-select" id="" formControlName = 'duration'>
+        <option>Once</option>
+        <option>Forever</option>
+      </select>
+      <div *ngIf="getduration().invalid && getduration().touched">
+        <small *ngIf="getduration().errors.required" class="text-danger">please select the duration</small>
+      </div>
+    </div>
 
-    <button mat-raised-button color="primary" type="submit" >submit</button>
+    <button mat-raised-button color="primary" type="submit" >Create coupon</button>
+    <button mat-stroked-button color="primary" mat-dialog-close class="ml-2">Cancel</button>
 
   </form>
 </div>
