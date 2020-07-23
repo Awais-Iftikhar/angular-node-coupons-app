@@ -16,6 +16,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   width: 100%;
 }
 
+.inner-header-loginsignup {
+  display: flex;
+  justify-content: center;
+}
+.inner-header-loginsignup h1 {
+  margin-left: 23px;
+  color: #697386;
+}
+
+
 @media  only screen and (max-width: 1100px){
   .main{
       width: 50%;

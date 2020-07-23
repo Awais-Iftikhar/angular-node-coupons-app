@@ -1,8 +1,14 @@
-<div class="main  mt-5">
-  <div class="card-header">
-    <h1>Login to continue</h1>
+<mat-progress-bar mode="indeterminate" *ngIf="isloading"></mat-progress-bar>
+<div class="d-flex justify-content-center ">
+  <mat-spinner  *ngIf="isloading" style="position: absolute; top: 40%;"></mat-spinner>
+</div>
+<div class="main  mt-5" *ngIf="!isloading">
+  <div class="card-header inner-header-loginsignup">
+    <mat-icon style="font-size: 48px; color: #697386;">account_circle</mat-icon>
+    <h1>Login</h1>
   </div>
-  <mat-card>
+
+  <mat-card >
     <form  (ngSubmit)="login(form)" [formGroup] = "form">
       <mat-form-field>
 
@@ -15,24 +21,26 @@
         </mat-error>
 
       </mat-form-field>
-      <mat-form-field  >
+
+      <mat-form-field class="mt-2" >
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName = 'password'  >
         <mat-icon color="primary" matSuffix>lock</mat-icon>
         <mat-error *ngIf="getpassword().invalid" >
           <span *ngIf="getpassword().errors.required">password is required </span>
           <span *ngIf="getpassword().errors.minlength">password must be atleast 5 characters</span>
-
         </mat-error>
-
-
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" >submit</button>
+
+      <div class="d-flex justify-content-center mt-3">
+        <button class="w-50" mat-raised-button  color="primary" type="submit" >login</button>
+      </div>
+
     </form>
+
     <mat-card-content class="text-center mt-3">Dont have an account?
-      <a routerLink="/signup" color="primary"> SIgnup</a>
+      <button routerLink="/signup" mat-stroked-button color="primary">Sign up</button>
     </mat-card-content>
+
   </mat-card>
-
-
 </div>

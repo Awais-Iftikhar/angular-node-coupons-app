@@ -18,7 +18,9 @@ export class AuthService {
   signupuser(user) {
     this.http.post<{message: string}>(`${this.url}/signup` , user).subscribe(res => {
       console.log(res);
+      this.route.navigate(['/']);
     }, err => {
+      this.authstatus.next(false);
       console.log(err.error.message);
     });
 
@@ -34,6 +36,7 @@ export class AuthService {
       this.saveauthtoken(token);
       this.route.navigate(['/coupon']);
     }, err => {
+      this.authstatus.next(false);
       console.log(err.error.message);
     });
 
