@@ -12,7 +12,6 @@
 
   background-color: #f7fafc !important;
 }
-
 .details{
   display: flex;
   flex-direction: row;
@@ -27,4 +26,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+@media  only screen and (max-width: 770px){
+  .details .inner-detail{
+    width: 90%;
+  }
+}
+
+@media  only screen and (max-width: 550px){
+  .content-wrap{
+    flex-direction: column;
+  }
 }

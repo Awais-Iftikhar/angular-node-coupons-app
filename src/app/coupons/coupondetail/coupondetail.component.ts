@@ -14,7 +14,9 @@ export class CoupondetailComponent implements OnInit {
   coupondata;
   discountvalue;
   currency;
+  newdate;
   isloading = false;
+
   constructor(private couponservice: CouponService , private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -28,6 +30,9 @@ export class CoupondetailComponent implements OnInit {
           console.log(obj.data);
           this.coupondata = obj.data;
           console.log(this.coupondata);
+          const gettime = this.coupondata.created;
+          const time = gettime * 1000;
+          this.newdate = new Date(time);
           const percentdiscount = this.coupondata.percent_off;
           const amountdiscount = this.coupondata.amount_off;
           const currencyvalue = this.coupondata.currency;
