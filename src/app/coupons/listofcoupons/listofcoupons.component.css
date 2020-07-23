@@ -15,5 +15,24 @@ th, td {
 
 }
 
+.mat-header-cell {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dashboard-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media  only screen and (max-width: 500px){
+  .dashboard-head h2{
+      font-size: 1.5rem;
+  }
+  .dashboard-head button {
+    font-size: 12px;
+  }
+
+}
 
 

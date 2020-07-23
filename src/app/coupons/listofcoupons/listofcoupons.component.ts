@@ -15,8 +15,7 @@ export class ListofcouponsComponent implements OnInit {
   isloading = false;
 
   constructor(private couponservice: CouponService , private dialog: MatDialog) { }
-  @ViewChild(MatSort , {static: false}) sort: MatSort;
-  @ViewChild(MatPaginator , {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator , {static: false}) paginator: MatPaginator;
 
   displayedColumns: string[] = ['name', 'duration', 'date', 'Actions'];
   dataSource = new MatTableDataSource<Coupons>(this.data);
@@ -31,18 +30,17 @@ export class ListofcouponsComponent implements OnInit {
       console.log(res);
       this.dataSource.data = res;
       console.log(this.dataSource);
-      this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       console.log(this.dataSource);
     });
 
   }
   addcoupon() {
-    this.dialog.open(CreatecouponComponent,
+    const createref = this.dialog.open(CreatecouponComponent,
       {
-        height: '520px',
         width: '600px',
       });
+    createref.disableClose = true;
   }
 
   deletecoupon(row) {
@@ -51,6 +49,7 @@ export class ListofcouponsComponent implements OnInit {
       data: row.id,
       },
     );
+    ref.disableClose = true;
     ref.afterClosed().subscribe((res) => {
       if (res === true) {
         const id = row.id;
