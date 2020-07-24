@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = `${environment.apiurl}/users`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'http://localhost:8081/api/users';
+
   private token: string;
   private authstatus = new Subject<boolean>();
   private isauthenticated = false;
@@ -16,7 +19,7 @@ export class AuthService {
   constructor(private http: HttpClient, private route: Router) { }
 
   signupuser(user) {
-    this.http.post<{message: string}>(`${this.url}/signup` , user).subscribe(res => {
+    this.http.post<{message: string}>(`${BACKEND_URL}/signup` , user).subscribe(res => {
       console.log(res);
       this.route.navigate(['/']);
     }, err => {
@@ -27,7 +30,7 @@ export class AuthService {
   }
 
   loginuser(user) {
-    this.http.post<{message: string, token: string}>(`${this.url}/login` , user).subscribe(res => {
+    this.http.post<{message: string, token: string}>(`${BACKEND_URL}/login` , user).subscribe(res => {
       console.log(res);
       const token = res.token;
       this.token = token;

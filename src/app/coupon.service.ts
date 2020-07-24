@@ -3,13 +3,15 @@ import { Coupons } from './coupons/coupons';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = `${environment.apiurl}/coupons`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CouponService {
 
-  url = 'http://localhost:8081/api/coupons';
   couponlist: Coupons[] = [];
   private couponsubject = new Subject<Coupons[]>();
   loaddata = new Subject<boolean>();
@@ -17,7 +19,7 @@ export class CouponService {
   constructor(private http: HttpClient) { }
 
   retrieveallcoupons() {
-    return this.http.get<{data: any}>(`${this.url}`)
+    return this.http.get<{data: any}>(`${BACKEND_URL}`)
     .pipe(map((res) => {
       return res.data.data.map((d) => {
         const time = d.created * 1000;
@@ -53,7 +55,7 @@ export class CouponService {
 
   createcoupon(data) {
     console.log(data);
-    this.http.post<{message: string}>(`${this.url}`, data).subscribe(res => {
+    this.http.post<{message: string}>(`${BACKEND_URL}`, data).subscribe(res => {
       this.loaddata.next(true);
       this.retrieveallcoupons();
       console.log(res.message);
@@ -64,11 +66,11 @@ export class CouponService {
 
   getsinglecoupon(id: string) {
     // return {...this.couponlist.find((coupon => coupon.id === id))};
-    return this.http.get<{data: any}>(`${this.url}/${id}`);
+    return this.http.get<{data: any}>(`${BACKEND_URL}/${id}`);
   }
 
   deletecoupon(id: string) {
-    this.http.delete<{message: string}>(`${this.url}/${id}`).subscribe(res => {
+    this.http.delete<{message: string}>(`${BACKEND_URL}/${id}`).subscribe(res => {
       this.loaddata.next(true);
       this.retrieveallcoupons();
       console.log(res.message);
