@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: '' , component: LoginComponent},
   {path: 'signup' , component: SignupComponent},
   {path: 'coupon' , component: ListofcouponsComponent , canActivate: [Authguard]},
-  {path: 'coupon/:couponid' , component: CoupondetailComponent , canActivate: [Authguard]}
+  {path: 'coupon/:couponid' , component: CoupondetailComponent , canActivate: [Authguard]},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
