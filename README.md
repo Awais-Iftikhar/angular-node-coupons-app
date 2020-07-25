@@ -1,6 +1,6 @@
 # Angular-Node Web APP
 
-MEAN Stack Web application with Angular on Front-end and Nodejs on backend with route protection , complete validation,Auth guards and user Authentication using JSON Web Token.
+MEAN Stack Web application with Angular on Front-end and Nodejs on backend that allow users to see all the coupons ,create and delete individual coupons from Stripe. It includes route protection , complete validation,Auth guards and user Authentication using JSON Web Token.
 
 # Angularcouponapp
 
